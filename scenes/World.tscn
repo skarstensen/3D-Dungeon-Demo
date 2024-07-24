@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctxgndjiecwnm"]
+[gd_scene load_steps=10 format=3 uid="uid://ctxgndjiecwnm"]
 
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_06nbx"]
 [ext_resource type="Script" path="res://scripts/Map.gd" id="2_kud2y"]
 [ext_resource type="PackedScene" uid="uid://dxs76p5c53o5g" path="res://scenes/Map Block.tscn" id="3_wt016"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="4_1j0l7"]
 [ext_resource type="PackedScene" uid="uid://bx7mvifi5nwrc" path="res://scenes/maps/map_1.tscn" id="4_ipncg"]
+[ext_resource type="Texture2D" uid="uid://4krwhdymvu4l" path="res://icon.svg" id="5_34n3w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3an77"]
 sky_top_color = Color(0.384314, 0.427451, 0.67451, 1)
@@ -30,6 +31,7 @@ playerStart = Vector2i(10, 20)
 script = ExtResource("2_kud2y")
 mapBlockPrefab = ExtResource("3_wt016")
 mapDataFile = ExtResource("4_ipncg")
+playerMarker = ExtResource("5_34n3w")
 mapDimensions = Vector2i(22, 22)
 
 [node name="Player" type="Node3D" parent="."]

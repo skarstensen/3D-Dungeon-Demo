@@ -21,6 +21,7 @@ func _unhandled_key_input(event):
 		rotateCamera(-90)
 
 	if Input.is_action_just_pressed("map"):
+		map.updateMarker(player.transform.origin.z, player.transform.origin.x)
 		map.map.visible = !map.map.visible
 
 ################################################################################
@@ -33,10 +34,6 @@ func setPlayerPosition(cellX, cellY):
 	
 func getCameraPosition() -> Vector2:
 	return Vector2(player.transform.origin.x, player.transform.origin.z)
-	
-
-func setCameraRotation(rotation):
-	player.rotation_degrees.y = rotation
 
 
 func rotateCamera(amount):
@@ -59,4 +56,5 @@ func moveForward():
 	
 	if (map.getTileData(destination.z, destination.x) == Map.Tile.EMPTY_TILE):
 		setPlayerPosition(destination.x, destination.z)
+		map.updateMarker(player.transform.origin.z, player.transform.origin.x)
 
