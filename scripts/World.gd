@@ -5,8 +5,10 @@ extends Node3D
 @export var playerStart:Vector2i
 
 func _ready():
-	pass
-	setPlayerPosition(playerStart.x, playerStart.y)
+	if (map.random):
+		setPlayerPosition(map.randomPlayerStart.x, map.randomPlayerStart.y)
+	else:
+		setPlayerPosition(playerStart.x, playerStart.y)
 	
 
 func _unhandled_key_input(event):

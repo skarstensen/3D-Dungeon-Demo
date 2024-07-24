@@ -32,8 +32,12 @@ func generate(map:TileMap, w:int, h:int, minRoomSize, maxRoomSize):
 
 	var key:String
 	
+	var playerStartPos:Vector2i
+	
 	mapWidth = w
 	mapHeight = h
+	
+	map.clear()
 
 	# Fill map with solid tiles, adding a "border" of solid tiles around the map
 	# out of bounds.
@@ -61,6 +65,8 @@ func generate(map:TileMap, w:int, h:int, minRoomSize, maxRoomSize):
 	# Connect dug rooms.
 	dugRooms = rooms.values().duplicate()
 	
+	playerStartPos = Vector2i(dugRooms[0].centerpoint.x, dugRooms[0].centerpoint.y)
+	
 	for r in dugRooms.size() - 1:
 		start = Vector2(dugRooms[r].centerpoint.x, dugRooms[r].centerpoint.y)
 		end = Vector2(dugRooms[r + 1].centerpoint.x, dugRooms[r + 1].centerpoint.y)
@@ -81,6 +87,7 @@ func generate(map:TileMap, w:int, h:int, minRoomSize, maxRoomSize):
 		for col in range(start.x, end.x, modifier):           
 			digCell(map, Vector2(col, end.y))
 
+	return playerStartPos
 
 func digRoom(map, room):
 	for x in range(room.position.x, room.position.x + room.dimensions.x - 1):

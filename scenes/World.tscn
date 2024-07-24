@@ -20,6 +20,7 @@ sky_material = SubResource("ProceduralSkyMaterial_3an77")
 sky = SubResource("Sky_pyf5f")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 2
 
 [node name="World" type="Node3D" node_paths=PackedStringArray("map", "player")]
 script = ExtResource("1_06nbx")

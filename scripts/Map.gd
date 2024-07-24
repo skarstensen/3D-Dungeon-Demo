@@ -9,9 +9,11 @@ enum Tile { OUT_OF_BOUNDS = -1, EMPTY_TILE, SOLID_TILE}
 @export var playerMarker:Texture2D
 
 @export var mapDimensions:Vector2i
+@export var random:bool
 
 var map:TileMap
 var marker:Sprite2D
+var randomPlayerStart:Vector2i
 
 func _ready():
 	marker = Sprite2D.new()
@@ -23,7 +25,8 @@ func _ready():
 	
 	map = mapDataFile.instantiate() as TileMap
 	
-#	DungeonGenerator.generate(map, mapDimensions.x, mapDimensions.y, 5, 5)
+	if (random):
+		randomPlayerStart = DungeonGenerator.generate(map, mapDimensions.x, mapDimensions.y, 5, 5)
 	
 	MapBuilder3d.generate(map, self, mapBlockPrefab)
 	
