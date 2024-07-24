@@ -32,10 +32,6 @@ func _unhandled_key_input(event):
 func setPlayerPosition(cellX, cellY):
 	player.transform.origin.x = cellX
 	player.transform.origin.z = cellY
-	
-	
-func getCameraPosition() -> Vector2:
-	return Vector2(player.transform.origin.x, player.transform.origin.z)
 
 
 func rotateCamera(amount):
