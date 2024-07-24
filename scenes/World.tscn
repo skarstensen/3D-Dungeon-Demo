@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://ctxgndjiecwnm"]
+
+[ext_resource type="Script" path="res://scripts/World.gd" id="1_06nbx"]
+[ext_resource type="Script" path="res://scripts/Map.gd" id="2_kud2y"]
+[ext_resource type="PackedScene" uid="uid://dxs76p5c53o5g" path="res://scenes/Map Block.tscn" id="3_wt016"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="4_1j0l7"]
+[ext_resource type="PackedScene" uid="uid://bx7mvifi5nwrc" path="res://scenes/maps/map_1.tscn" id="4_ipncg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3an77"]
+sky_top_color = Color(0.384314, 0.427451, 0.67451, 1)
+sky_horizon_color = Color(0.74902, 0.615686, 0.643137, 1)
+ground_bottom_color = Color(0.0313726, 0.215686, 0.0784314, 1)
+sun_angle_max = 56.67
+
+[sub_resource type="Sky" id="Sky_pyf5f"]
+sky_material = SubResource("ProceduralSkyMaterial_3an77")
+
+[sub_resource type="Environment" id="Environment_jnrly"]
+sky = SubResource("Sky_pyf5f")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="World" type="Node3D" node_paths=PackedStringArray("map", "player")]
+script = ExtResource("1_06nbx")
+map = NodePath("Maze")
+player = NodePath("Player")
+playerStart = Vector2i(10, 20)
+
+[node name="Maze" type="Node3D" parent="."]
+script = ExtResource("2_kud2y")
+mapBlockPrefab = ExtResource("3_wt016")
+mapDataFile = ExtResource("4_ipncg")
+mapDimensions = Vector2i(22, 22)
+
+[node name="Player" type="Node3D" parent="."]
+script = ExtResource("4_1j0l7")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jnrly")

@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxs76p5c53o5g"]
+
+[sub_resource type="PlaneMesh" id="1"]
+
+[node name="Map Block" type="Node3D"]
+
+[node name="Top Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -1, 4.37114e-08, 0, -8.74228e-08, -0.5, 0, 0.5, 0)
+mesh = SubResource("1")
+
+[node name="North Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, -0.5)
+mesh = SubResource("1")
+
+[node name="East Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0, 0.5, 0.5, 0, 0)
+mesh = SubResource("1")
+
+[node name="West Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0, 0.5, -0.5, 0, 0)
+mesh = SubResource("1")
+
+[node name="South Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0.5)
+mesh = SubResource("1")
+
+[node name="Bottom Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.5, 0)
+mesh = SubResource("1")
