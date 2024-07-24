@@ -6,8 +6,6 @@ var blocks = []
 var width
 var height
 
-var entities:Dictionary = {}
-
 func generate(map:TileMap, container:Node3D, prefab):
 	
 	for deletable in container.get_children():
@@ -23,7 +21,6 @@ func initMapData(tilemap:TileMap):
 	
 	tiles.clear()
 	blocks.clear()
-	entities.clear()
 	
 	# map dimensions
 	while tilemap.get_cell_atlas_coords(0, Vector2i(x, y)).x != Map.Tile.OUT_OF_BOUNDS:
