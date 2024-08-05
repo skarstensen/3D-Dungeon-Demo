@@ -34,6 +34,7 @@ mapBlockPrefab = ExtResource("3_wt016")
 mapDataFile = ExtResource("4_ipncg")
 playerMarker = ExtResource("5_34n3w")
 mapDimensions = Vector2i(22, 22)
+random = true
 
 [node name="Player" type="Node3D" parent="."]
 script = ExtResource("4_1j0l7")
